@@ -8,6 +8,7 @@
     scroll-behavior: smooth; 
 }
 
+/*BARRA DE SCROLL*/
 ::-webkit-scrollbar{
     height: .1rem;
     width: .5rem;
@@ -26,11 +27,12 @@ body{
     font-family: 'Poppins', sans-serif;
     background: #1d002c;
     color: #fff;
-    overflow: visible; /* Se cambió a visible */
+    overflow: visible; 
+    max-width: fit-content;
 }
 
 header{
-    padding: 25px 10%;
+    padding: 25px 7%;
     position: absolute;
     left: 0;
     top: 0;
@@ -41,6 +43,7 @@ header{
     z-index: 1001;
 }
 
+/*LOGO*/
 .logo{
     font-size: 2rem;
     color: #12f7ff;
@@ -50,6 +53,8 @@ header{
     text-decoration: none;
 }
 
+
+/*NAVBAR*/
 ul.navlist{
     display: flex;
     align-items: center;
@@ -78,11 +83,16 @@ ul.navlist{
     color: #1d002c;
 }
 
+/*SECCIONES*/
 section{
     min-height: 100vh;
-    margin-bottom: 100px; /* Añadir espacio entre las secciones */
+    margin-bottom: 0; /* Añadir espacio entre las secciones */
+    overflow: hidden; /* Evitar el desbordamiento de las secciones */
+    position: relative;
 }
 
+
+/*INICIO*/
 .parallax-home{
     position: relative;
     display: flex;
@@ -102,22 +112,25 @@ section{
     font-size: 2.5rem;
     text-shadow: 0 10px 4px rgba(0, 0, 0, 0.85);
     top: 80%;
-    left: 3%;
+    left: 5%;
 }
 
 .parallax-home img#moon, .about img#desert-moon{
     mix-blend-mode: screen;
 }
 
+
+/*SECCIÓN DE ABOUT*/
 .about{
     position: relative;
+    min-height: 130vh;
 }
 
 .about img{
     position: absolute;
+    top: -26px;
     z-index: 1000;
-    /*object-fit: cover;
-    pointer-events: none;*/
+    pointer-events: none;
 }
 
 .about img .about-waterfall{
@@ -127,8 +140,8 @@ section{
 
 .about .info-box{
     position: absolute;
-    top: 0;
-    left: 10%;
+    top: 30px;
+    left: 9%;
     width: 50%;
     z-index: 1003;
     background: #1d002c;
@@ -160,9 +173,13 @@ section{
     color: #12f7ff;
 }
 
+
+/*SECCIÓN DE PRODUCTOS*/
 .products{
     background: #121137;
-    padding: 3rem 10%;
+    padding: 1rem 5%;
+    width: 100%;
+    overflow: visible;
 }
 
 .products h2{
@@ -172,59 +189,82 @@ section{
     margin-bottom: 5rem;
 }
 
-.product-card{
+/* Contenedor de las tarjetas */
+.product-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    flex-wrap: nowrap; /* Permitir que las tarjetas se ajusten en una sola fila */
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    gap: 2rem; /* Espaciado entre las tarjetas */
+    padding: 1rem;
+    overflow: visible;
 }
 
-.card{
+/* Diseño de las tarjetas */
+.card {
     padding: 1rem;
     border: 2px solid #12f7ff;
     text-align: center;
     border-radius: 25px;
-    display: block;
+    display: flex;
+    flex-direction: column; /* Apilar los elementos verticalmente */
+    align-items: center; /* Centrar los elementos dentro de la tarjeta */
     transition: all .4s ease;
-    z-index: 999;
+    z-index: 1000;
+    max-width: 300px; /* Limitar el ancho máximo de las tarjetas */
+    width: 100%; /* Asegurar que se ajusten al contenedor */
 }
 
 .card:hover{
     cursor: pointer;
-    transform: translateY(-7px);
+    transform: translateY(-8px);
 }
 
-.card img{
+/* Imagen de la tarjeta */
+.card img {
     width: 150px;
     height: 150px;
-    margin-top: -4rem;
+    margin-top: -30%;
     filter: drop-shadow(0 0 0.5rem #1797ff);
 }
 
-.card .price-name{
+/* Título y precio debajo de la imagen */
+.card .price-name {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 1rem;
 }
 
 .info{
     padding-bottom: .5rem;
 }
 
-.info p{
-    padding: .5rem 0 1.5rem 0;
+.price-name h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
 }
 
-.info .btn{
-    display: block;
-    width: 60%;
-    margin: auto;
-}
-
-.price-name span{
+.price-name span {
+    margin-top: 0.5rem;
     color: #04cf37;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+/* Descripción de la tarjeta */
+.info p {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* Botón al final de la tarjeta */
+.info .btn {
+    display: block;
+    margin-top: 15px; 
+    width: 70%; /* Ajustar el ancho del botón */
+    text-align: center;
 }
 
 #progress{
